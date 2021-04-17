@@ -21,6 +21,10 @@ public class PlayerControllerScript : MonoBehaviour
     [SerializeField]
     private Transform cameraTransform;
     #endregion
+    #region Weapon
+    [SerializeField]
+    private Weapon weapon;
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,11 @@ public class PlayerControllerScript : MonoBehaviour
         if(Input.anyKey)
         {
             HandleInput();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            weapon.Fire();
         }
     }
 
@@ -58,5 +67,14 @@ public class PlayerControllerScript : MonoBehaviour
 
         Vector3 move = playerBody.right * moveX + playerBody.forward * moveZ;
         controller.Move(move * speed * Time.deltaTime);
+    }
+
+    public Quaternion GetPlayerLookRotation()
+    {
+        return cameraTransform.rotation;
+    }
+    public Vector3 GetPlayerPosition()
+    {
+        return playerBody.position;
     }
 }
