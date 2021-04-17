@@ -787,5 +787,15 @@ PrefabInstance:
       propertyPath: speed
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8599611615914424622, guid: e873cbe5fb6d73d4f8af0a4098780a59,
+        type: 3}
+      propertyPath: targetRefreshMin
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599611615914424622, guid: e873cbe5fb6d73d4f8af0a4098780a59,
+        type: 3}
+      propertyPath: targetRefreshMax
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e873cbe5fb6d73d4f8af0a4098780a59, type: 3}
