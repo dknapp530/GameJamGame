@@ -41,6 +41,11 @@ public class PlayerControllerScript : MonoBehaviour
             HandleInput();
         }
 
+        if (Input.GetKeyDown("q"))
+        {
+            GameManager.Instance.StartWave();
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             weapon.Fire();

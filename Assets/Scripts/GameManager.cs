@@ -16,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     private List<Wave> waves;
 
     [SerializeField]
+    private float randomMagniutde;
+
+    [SerializeField]
     private List<GameObject> targets;
     void Start()
     {
@@ -52,12 +55,12 @@ public class GameManager : Singleton<GameManager>
             {
                 for (int j = 0; j < currentWave.EnemyDistributions[i]; j++)
                 {
-                    SpawnEnemy();
+                    SpawnEnemy(spawners[i].transform);
                 }
             }
         }
     }
-    private void SpawnEnemy()
+    private void SpawnEnemy(Transform transform)
     {
         GameObject enemy = null;
         for (int i = 0; i < enemyPool.Count; i++)
@@ -70,6 +73,7 @@ public class GameManager : Singleton<GameManager>
         }
         if(enemy != null)
         {
+            enemy.transform.position = new Vector3(transform.position.x + Random.insideUnitSphere.x * randomMagniutde, transform.position.y, transform.position.z + Random.insideUnitSphere.z * randomMagniutde);
             enemy.SetActive(true);
         }
     }
