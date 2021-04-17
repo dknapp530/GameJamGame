@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8599611615914424609}
   - component: {fileID: 8599611615914424622}
+  - component: {fileID: 83320201}
+  - component: {fileID: 83320202}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -45,11 +47,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetRefreshMin: 6
-  targetRefreshMax: 12
-  speed: 5
+  targetRefreshMin: 3
+  targetRefreshMax: 6
+  speed: 2.5
   maxHealth: 5
   health: 5
+--- !u!65 &83320201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599611615914424608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 1, z: 0.75}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!135 &83320202
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599611615914424608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &8599611616560984012
 GameObject:
   m_ObjectHideFlags: 0
