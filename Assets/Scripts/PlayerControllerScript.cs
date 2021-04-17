@@ -71,10 +71,14 @@ public class PlayerControllerScript : MonoBehaviour
 
     public Quaternion GetPlayerLookRotation()
     {
-        return cameraTransform.rotation;
+        return playerBody.rotation;
     }
     public Vector3 GetPlayerPosition()
     {
         return playerBody.position;
+    }
+    public Vector3 GetPlayerForward()
+    {
+        return playerBody.forward;
     }
 }

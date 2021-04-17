@@ -7,15 +7,20 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float timer = 300.0f;
     private float currentTime = 300.0f;
+    private float bulletSpeed = 10.0f;
+
     void OnEnable()
     {
         currentTime = timer;
     }
 
+
+
     void Update()
     {
         // Move the bullet forward
-        if(currentTime > 0f)
+        transform.position += transform.forward * Time.deltaTime * bulletSpeed;
+        if (currentTime > 0f)
         {
             currentTime -= Time.deltaTime;
         } else
