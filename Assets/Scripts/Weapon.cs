@@ -45,8 +45,8 @@ public class Weapon : MonoBehaviour
             }
             if (bullet != null)
             {
-                bullet.transform.rotation = playerController.GetPlayerLookRotation();
-                bullet.transform.position = playerController.GetPlayerPosition();
+                bullet.transform.rotation = playerController.GetPlayerLookRotation(); //Adjust the rotation so it's 90 degrees from the player
+                bullet.transform.position = playerController.GetPlayerPosition(); //Adjust position so that it starts in front of the player
                 bullet.SetActive(true);
             }
         }

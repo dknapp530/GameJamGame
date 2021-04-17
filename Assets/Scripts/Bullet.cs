@@ -12,9 +12,9 @@ public class Bullet : MonoBehaviour
         currentTime = timer;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Move the bullet forward
         if(currentTime > 0f)
         {
             currentTime -= Time.deltaTime;
