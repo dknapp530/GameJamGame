@@ -27,13 +27,8 @@ public class Enemy : MonoBehaviour
     void OnEnable()
     {
         health = maxHealth;
-        ResetTimer();
-        //AquireTarget();
-    }
-
-    void ResetTimer()
-    {
         timer = Random.Range(targetRefreshMin, targetRefreshMax);
+        //AquireTarget();
     }
 
     // Update is called once per frame
@@ -48,7 +43,7 @@ public class Enemy : MonoBehaviour
             timer -= Time.deltaTime;
         } else
         {
-            ResetTimer();
+            timer = Random.Range(targetRefreshMin, targetRefreshMax);
             AquireTarget();
         }
 
@@ -72,14 +67,6 @@ public class Enemy : MonoBehaviour
             if (tempDist < distanceFromCurrentTarget) {
                 target = targets[i];
             }
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            target = other.gameObject;
-            ResetTimer();
         }
     }
 }
