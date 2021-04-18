@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     private float timer = 300.0f;
     private float currentTime = 300.0f;
     private float bulletSpeed = 10.0f;
-
     void OnEnable()
     {
         currentTime = timer;

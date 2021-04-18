@@ -10,17 +10,19 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private int poolMax;
     [SerializeField]
-    private float ammo;
-    [SerializeField]
     private float spawnDistance = 1.0f;
     [SerializeField]
     private float spawnHeight = 0.001f;
+    [SerializeField]
+    private bool isShooting = false;
     Vector3 spawnHeightVector;
     [SerializeField]
     private PlayerControllerScript playerController;
-
+    [SerializeField]
+    private Ammo myAmmo;
     void Start()
     {
+
         BulletPool = new List<GameObject>();
         GameObject tmp;
         spawnHeightVector = new Vector3(0,spawnHeight,0);
@@ -34,12 +36,12 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-
+       
     }
 
     public void Fire()
     {
-        if (ammo > 0)
+        if (myAmmo.CheckAmmo())
         {
             GameObject bullet = null;
             for (int i = 0; i < BulletPool.Count; i++)
@@ -47,6 +49,7 @@ public class Weapon : MonoBehaviour
                 if (!BulletPool[i].activeInHierarchy)
                 {
                     bullet = BulletPool[i];
+                    isShooting = true;
                     break;
                 }
             }
@@ -56,6 +59,14 @@ public class Weapon : MonoBehaviour
                 bullet.transform.position = playerController.GetPlayerForward() + spawnHeightVector + playerController.GetPlayerPosition()*spawnDistance;
                 bullet.SetActive(true);
             }
+            else
+            {
+                isShooting = false;
+            }
         }
+    }
+    public bool CheckShooting()
+    {
+        return isShooting;
     }
 }
