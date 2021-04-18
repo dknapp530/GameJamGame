@@ -7,6 +7,8 @@ public class Ammo : MonoBehaviour
     [SerializeField]
     private float ammo = 100.0f;
     private readonly Weapon gunBoy;
+    [SerializeField]
+    private AmmoBox ammoBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +33,11 @@ public class Ammo : MonoBehaviour
         }
         return returnValue;
     }
-
-    public float GetAmmo()
+    public void OnTriggerEnter(Collider other)
     {
-        return ammo;
+        if(other.CompareTag("AmmoBox"))
+        {
+            ammo += 50;
+        }
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AmmoBox : MonoBehaviour
 {
-    [SerializeField]
-    private bool giveAmmo = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +15,11 @@ public class AmmoBox : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.collider.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            giveAmmo = true;
             Destroy(gameObject);
         }
-    }
-    public bool SendAmmo()
-    {
-
-        return giveAmmo;
     }
 }
