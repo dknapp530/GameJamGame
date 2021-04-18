@@ -20,6 +20,15 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private List<GameObject> targets;
+    [SerializeField]
+    private int totalEnemyCount = 0;
+
+    [SerializeField]
+    private float timerSetting = 5f;
+    [SerializeField]
+    private float timer = 5f;
+    [SerializeField]
+    private bool timerBegan = false;
     void Start()
     {
         Target[] targetArray = FindObjectsOfType<Target>() as Target[];
@@ -40,7 +49,20 @@ public class GameManager : Singleton<GameManager>
     }
     void Update()
     {
-        
+        if(totalEnemyCount <= 0 && timerBegan == false)
+        {
+            timerBegan = true;
+        }
+        if(timerBegan)
+        {
+            timer -= Time.deltaTime;
+        }
+        if(timer <= 0)
+        {
+            timerBegan = false;
+            timer = timerSetting;
+            StartWave();
+        }
     }
     public List<GameObject> GetTargets()
     {
@@ -52,16 +74,21 @@ public class GameManager : Singleton<GameManager>
     }
     public void StartWave()
     {
-        Wave currentWave = waves[0];
-        for (int i = 0; i < currentWave.EnemyDistributions.Count; i++)
+        if (waves.Count > 0)
         {
-            if (spawners[i] != null)
+            Wave currentWave = waves[0];
+            totalEnemyCount = 0;
+            for (int i = 0; i < currentWave.EnemyDistributions.Count; i++)
             {
-                for (int j = 0; j < currentWave.EnemyDistributions[i]; j++)
+                if (spawners[i] != null)
                 {
-                    SpawnEnemy(spawners[i].transform);
+                    for (int j = 0; j < currentWave.EnemyDistributions[i]; j++)
+                    {
+                        SpawnEnemy(spawners[i].transform);
+                    }
                 }
             }
+            waves.RemoveAt(0);
         }
     }
     private void SpawnEnemy(Transform transform)
@@ -72,6 +99,7 @@ public class GameManager : Singleton<GameManager>
             if (!enemyPool[i].activeInHierarchy)
             {
                 enemy = enemyPool[i];
+                totalEnemyCount++;
                 break;
             }
         }
@@ -80,5 +108,9 @@ public class GameManager : Singleton<GameManager>
             enemy.transform.position = new Vector3(transform.position.x + Random.insideUnitSphere.x * randomMagniutde, transform.position.y, transform.position.z + Random.insideUnitSphere.z * randomMagniutde);
             enemy.SetActive(true);
         }
+    }
+    public void EnemyRemoved()
+    {
+        totalEnemyCount--;
     }
 }

@@ -40,7 +40,10 @@ public class Shelf : MonoBehaviour
             if(targets.Count > 0)
             {
                 CheckForDisabled();
-                Fire();
+                if (targets.Count > 0)
+                {
+                    Fire();
+                }
             }
         }
     }

@@ -19,16 +19,16 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int health;
 
-    private void Start()
-    {
-        
-    }
-
     void OnEnable()
     {
         health = maxHealth;
         ResetTimer();
         //AquireTarget();
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.EnemyRemoved();
     }
 
     void ResetTimer()

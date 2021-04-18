@@ -27,4 +27,13 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+            collision.collider.gameObject.SetActive(false);
+        }
+    }
 }
