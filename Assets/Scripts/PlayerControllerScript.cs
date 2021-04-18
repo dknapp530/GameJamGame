@@ -71,6 +71,10 @@ public class PlayerControllerScript : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
 
         Vector3 move = playerBody.right * moveX + playerBody.forward * moveZ;
+        if (!controller.isGrounded)
+        {
+            move.y -= 1;
+        }
         controller.Move(move * speed * Time.deltaTime);
     }
 

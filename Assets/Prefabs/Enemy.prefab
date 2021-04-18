@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2528031741255145175}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,9 +78,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &-2528031741255145175
 BoxCollider:
@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 8599611616560984011}
   - component: {fileID: 8599611616560984010}
   - component: {fileID: 8599611616560984013}
+  - component: {fileID: 1267547150}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -166,7 +167,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3d4f04103c718c44db5713e606a4b977, type: 3}
+  m_Sprite: {fileID: 5390958179234385172, guid: 6679b2bec19f98246b812868cebedbd7,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,3 +191,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cb12b17b2f5d0498f71d94b115fa06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1267547150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599611616560984012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 329ae29a3a0ad094287f541ed62450c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

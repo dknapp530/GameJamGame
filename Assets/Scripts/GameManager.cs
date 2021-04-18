@@ -46,6 +46,10 @@ public class GameManager : Singleton<GameManager>
     {
         return targets;
     }
+    public List<GameObject> GetEnemies()
+    {
+        return enemyPool;
+    }
     public void StartWave()
     {
         Wave currentWave = waves[0];
